@@ -14,7 +14,7 @@ defmodule Fahrplan.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [applications: [:logger, :httpoison]]
   end
 
   # Dependencies can be Hex packages:
@@ -27,6 +27,12 @@ defmodule Fahrplan.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:httpoison, "~> 0.8.0"},
+      {:poison, "~> 1.5"}, 
+      {:mix_test_watch, "~> 0.2", only: :dev},
+      {:credo, "~> 0.3", only: [:dev, :test]},
+      {:exrm, "~> 0.18.1"}
+    ]
   end
 end
